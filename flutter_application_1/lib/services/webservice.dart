@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/stock.dart';
 import 'package:http/http.dart' as http;
 
