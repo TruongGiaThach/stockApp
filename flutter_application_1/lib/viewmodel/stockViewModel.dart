@@ -12,11 +12,11 @@ class StockViewModel {
     return _stock.Name;
   }
 
-  double get price {
-    return 5;
+  String get price {
+    return _stock.Currency;
   }
 
-  double get changePercent {
-    return double.parse(_stock.MatchScore);
+  String get changePercent {
+    return _stock.MatchScore;
   }
 }

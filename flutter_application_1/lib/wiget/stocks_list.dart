@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/viewmodel/stockListViewModel.dart';
 import 'package:provider/provider.dart';
@@ -61,7 +59,7 @@ class _StockListState extends State<StockList> {
                 width: 75,
                 height: 25,
                 child: Text(
-                  "${stock.changePercent.toStringAsFixed(2)}%",
+                  "${stock.changePercent}%",
                   style: TextStyle(color: Colors.white),
                 ),
                 alignment: Alignment.center,

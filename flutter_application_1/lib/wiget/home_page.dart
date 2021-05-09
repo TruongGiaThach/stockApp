@@ -54,7 +54,19 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 310,
-                    child: StockList(),
+                    child:
+                        /*FutureBuilder<String>(
+                            future: ,
+                          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                            // AsyncSnapshot<Your object type>
+                            if (snapshot.connectionState == ConnectionState.waiting) {
+                              return Center(child: Text('Please wait its loading...'));
+                            } else {
+                              if (snapshot.hasError)
+                                return Center(child: Text('Error: ${snapshot.error}'));
+                              else
+                                return */
+                        StockList(),
                   ),
                 ],
               ),
