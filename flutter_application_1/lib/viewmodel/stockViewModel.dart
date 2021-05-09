@@ -1,22 +1,22 @@
 import 'package:flutter_application_1/model/stock.dart';
 
 class StockViewModel {
-  Stock _stock;
-  StockViewModel({Stock stock}) : _stock = stock;
+  BestMatchElement _stock;
+  StockViewModel({BestMatchElement stock}) : _stock = stock;
 
   String get symbol {
-    return _stock.symbol;
+    return _stock.Symbol;
   }
 
   String get company {
-    return _stock.company;
+    return _stock.Name;
   }
 
   double get price {
-    return _stock.price;
+    return 5;
   }
 
   double get changePercent {
-    return _stock.changePercent;
+    return double.parse(_stock.MatchScore);
   }
 }

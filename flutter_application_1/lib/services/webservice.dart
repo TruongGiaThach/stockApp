@@ -40,19 +40,15 @@ class Webservice {
       throw Exception('Failed to load json data');
     }
   }*/
-  Future<List<Stock>> fetchTopHeadLines() async {
+  Future<BestMatch> fetchTopHeadLines() async {
     String url =
         "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo";
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      final result = jsonDecode(response.body);
-      List<dynamic> list = result["bestMatches"];
-      List<Stock> stocks = [];
-      list.forEach((element) {
-        stocks.add(Stock.fromJSON(element));
-      });
-      return stocks; //list.map((stock) => Stock.fromJSON(stock)).toList();
+      final result = bestMatchFromMap(response.body);
+      return Future.value(
+          result); //list.map((stock) => Stock.fromJSON(stock)).toList();
     } else {
       // If that response was not OK, throw an error.
       throw Exception('Failed to load json data');

@@ -7,9 +7,10 @@ class StockListViewModel extends ChangeNotifier {
   List<StockViewModel> listStocks;
 
   void populateTopHeadlines() async {
-    List<Stock> stocks = await Webservice().fetchTopHeadLines();
-    this.listStocks =
-        stocks.map((stock) => StockViewModel(stock: stock)).toList();
+    BestMatch stocks = await Webservice().fetchTopHeadLines();
+    this.listStocks = stocks.bestMatches
+        .map((stock) => StockViewModel(stock: stock))
+        .toList();
 
     notifyListeners();
   }
