@@ -56,11 +56,10 @@ class _StockListState extends State<StockList> {
                       color: Colors.grey[400],
                     );
                   },
-                  itemCount: ((snapshot as List<StockViewModel>).length == null)
-                      ? 0
-                      : (snapshot as List<StockViewModel>).length,
+                  itemCount:
+                      (snapshot.data.length == null) ? 0 : snapshot.data.length,
                   itemBuilder: (context, index) {
-                    final stock = (snapshot as List<StockViewModel>)[index];
+                    final stock = snapshot.data[index];
 
                     return ListTile(
                       contentPadding: EdgeInsets.all(10),

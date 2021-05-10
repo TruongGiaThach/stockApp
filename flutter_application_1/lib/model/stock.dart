@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 /*class Stock {
   final String symbol;
   final String company;

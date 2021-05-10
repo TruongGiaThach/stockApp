@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_application_1/model/stock.dart';
-import 'package:flutter_application_1/services/webservice.dart';
 import 'package:flutter_application_1/viewmodel/stockListViewModel.dart';
 import 'package:flutter_application_1/wiget/stocks_list.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +55,12 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 310,
-                    child: StockList(),
+                    child: MultiProvider(providers: [
+                      FutureProvider(
+                        create: (_) => StockListViewModel().getListStock(),
+                        initialData: [],
+                      )
+                    ], child: StockList()),
                   ),
                 ],
               ),
