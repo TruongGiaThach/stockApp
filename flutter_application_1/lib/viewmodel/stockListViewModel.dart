@@ -6,7 +6,7 @@ import 'package:flutter_application_1/viewmodel/stockViewModel.dart';
 class StockListViewModel extends ChangeNotifier {
   List<StockViewModel> listStocks;
 
-  void populateTopHeadlines() async {
+  Future<void> populateTopHeadlines() async {
     BestMatch stocks = await Webservice().fetchTopHeadLines();
     this.listStocks = stocks.bestMatches
         .map((stock) => StockViewModel(stock: stock))

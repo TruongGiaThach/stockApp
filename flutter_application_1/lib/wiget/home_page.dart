@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_application_1/model/stock.dart';
+import 'package:flutter_application_1/services/webservice.dart';
 import 'package:flutter_application_1/viewmodel/stockListViewModel.dart';
 import 'package:flutter_application_1/wiget/stocks_list.dart';
+import 'package:provider/provider.dart';
 import 'clock.dart';
 
 class HomePage extends StatelessWidget {
@@ -54,19 +57,7 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 310,
-                    child:
-                        /*FutureBuilder<String>(
-                            future: ,
-                          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                            // AsyncSnapshot<Your object type>
-                            if (snapshot.connectionState == ConnectionState.waiting) {
-                              return Center(child: Text('Please wait its loading...'));
-                            } else {
-                              if (snapshot.hasError)
-                                return Center(child: Text('Error: ${snapshot.error}'));
-                              else
-                                return */
-                        StockList(),
+                    child: StockList(),
                   ),
                 ],
               ),
