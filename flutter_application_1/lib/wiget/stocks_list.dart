@@ -84,17 +84,20 @@ class _StockListState extends State<StockList> {
                                   color: Colors.white,
                                   fontSize: 24,
                                   fontWeight: FontWeight.w500)),
-                          Container(
-                            width: 75,
-                            height: 25,
-                            child: Text(
-                              "${stock.changePercent}%",
-                              style: TextStyle(color: Colors.white),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              width: 75,
+                              height: 25,
+                              child: Text(
+                                "${stock.changePercent}%",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.red),
                             ),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.red),
                           )
                         ],
                       ),
