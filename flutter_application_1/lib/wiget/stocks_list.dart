@@ -18,12 +18,12 @@ class _StockListState extends State<StockList> {
 
   @override
   Widget build(BuildContext context) {
-    StockListViewModel stockListViewModel =
-        Provider.of<StockListViewModel>(context);
+    StockListViewModel stockListViewModel = StockListViewModel();
 
-    return FutureBuilder<void>(
-        future: stockListViewModel.populateTopHeadlines(),
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+    return FutureBuilder<List<StockViewModel>>(
+        future: stockListViewModel.getListStock(),
+        builder: (BuildContext context,
+            AsyncSnapshot<List<StockViewModel>> snapshot) {
           // AsyncSnapshot<Your object type>
           if (snapshot.hasError)
             return Text(
@@ -56,11 +56,11 @@ class _StockListState extends State<StockList> {
                       color: Colors.grey[400],
                     );
                   },
-                  itemCount: (stockListViewModel.listStocks.length == null)
+                  itemCount: ((snapshot as List<StockViewModel>).length == null)
                       ? 0
-                      : stockListViewModel.listStocks.length,
+                      : (snapshot as List<StockViewModel>).length,
                   itemBuilder: (context, index) {
-                    final stock = stockListViewModel.listStocks[index];
+                    final stock = (snapshot as List<StockViewModel>)[index];
 
                     return ListTile(
                       contentPadding: EdgeInsets.all(10),
